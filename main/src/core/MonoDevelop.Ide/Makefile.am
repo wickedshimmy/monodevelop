@@ -869,6 +869,7 @@ RES =  \
 	options/KeyBindingSchemeEmacs.xml \
 	options/KeyBindingSchemeMonoDevelop1.xml \
 	options/KeyBindingSchemeMonoDevelop2.xml \
+	options/KeyBindingSchemeVi.xml \
 	options/KeyBindingSchemeVisualStudio.xml \
 	templates/AppConfigFile.xft.xml \
 	templates/BlankCombine.xpt.xml \

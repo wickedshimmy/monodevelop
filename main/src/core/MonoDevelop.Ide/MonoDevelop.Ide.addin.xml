@@ -1602,6 +1602,7 @@
 		<Scheme id="VS05" _name = "Visual Studio" resource="KeyBindingSchemeVisualStudio.xml"/>
 		<Scheme id="MD1" _name = "MonoDevelop 1.0" resource="KeyBindingSchemeMonoDevelop1.xml"/>
 		<Scheme id="MD2" _name = "MonoDevelop 2.0" resource="KeyBindingSchemeMonoDevelop2.xml"/>
+		<Scheme id="Vi" _name = "Vi" resource="KeyBindingSchemeVi.xml" />
 	</Extension>
 	
 	<Extension path = "/MonoDevelop/Ide/ContextMenu/ProjectPad">

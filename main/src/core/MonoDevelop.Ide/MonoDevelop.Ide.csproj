@@ -197,6 +197,9 @@
     <EmbeddedResource Include="options\KeyBindingSchemeMonoDevelop2.xml">
       <LogicalName>KeyBindingSchemeMonoDevelop2.xml</LogicalName>
     </EmbeddedResource>
+    <EmbeddedResource Include="options\KeyBindingSchemeVi.xml">
+      <LogicalName>KeyBindingSchemeVi.xml</LogicalName>
+    </EmbeddedResource>
     <EmbeddedResource Include="MonoDevelop.Ide.StandardHeader\MITX11LicencePolicy.xml">
       <LogicalName>MITX11LicencePolicy.xml</LogicalName>
     </EmbeddedResource>
