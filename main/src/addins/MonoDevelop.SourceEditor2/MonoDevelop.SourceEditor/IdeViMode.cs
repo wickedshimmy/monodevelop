@@ -152,6 +152,13 @@ namespace MonoDevelop.SourceEditor
 					}
 				}
 				break;
+
+			case 'l':
+				if (command.Length == 3 && command [2] == 's') {
+					IdeApp.CommandService.DispatchCommand (MonoDevelop.Ide.Commands.WindowCommands.OpenWindowList, editor.View.WorkbenchWindow.Document);
+					return string.Empty;
+				}
+				break;
 			}
 			
 			return base.RunExCommand (command);
