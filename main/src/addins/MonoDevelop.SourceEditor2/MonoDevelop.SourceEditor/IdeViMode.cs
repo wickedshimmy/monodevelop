@@ -159,6 +159,22 @@ namespace MonoDevelop.SourceEditor
 					return string.Empty;
 				}
 				break;
+
+			case 'h':
+				if (command.StartsWith (":help")) {
+					string topic = command.Substring (5).Trim ();
+					if (String.IsNullOrEmpty (topic))
+						topic = "root:";
+					IdeApp.HelpOperations.ShowHelp (topic);
+					return String.Format ("Help: {0}", topic);
+				}
+				break;
+			case 'v':
+				if (command == ":ve" || Regex.IsMatch (command, "^:vers[ion]", RegexOptions.Compiled)) {
+					IdeApp.CommandService.DispatchCommand (MonoDevelop.Ide.Commands.HelpCommands.About);
+					return String.Empty;
+				}
+				break;
 			}
 			
 			return base.RunExCommand (command);
