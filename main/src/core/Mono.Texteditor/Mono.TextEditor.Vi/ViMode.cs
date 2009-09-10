@@ -236,7 +236,7 @@ namespace Mono.TextEditor.Vi
 		
 		void CheckVisualMode ()
 		{
-			if (state == ViEditMode.State.Visual || state == ViEditMode.State.Visual) {
+			if (state == ViEditMode.State.Visual || state == ViEditMode.State.VisualLine || state == ViEditMode.State.VisualBlock) {
 				if (!Data.IsSomethingSelected)
 					state = ViEditMode.State.Normal;
 			} else {
@@ -538,7 +538,18 @@ namespace Mono.TextEditor.Vi
 						SearchWordAtCaret ();
 						return;
 					}
-					
+				} else {
+					// Ctrl is pressed
+					switch (key) {
+					case Gdk.Key.v:
+						Status = "-- VISUAL BLOCK --";
+						if (Data.MainSelection == null)
+							Data.MainSelection = new Selection (Caret.Location, Caret.Location);
+						Data.MainSelection.Anchor = Caret.Location;
+						Data.MainSelection.SelectionMode = SelectionMode.Block;
+						state = State.VisualBlock;
+						return;
+					}
 				}
 				
 				action = ViActionMaps.GetNavCharAction ((char)unicodeKey);
@@ -698,6 +709,30 @@ namespace Mono.TextEditor.Vi
 					return;
 				}
 
+				ApplyActionToSelection (modifier, unicodeKey);
+				return;
+				
+			case State.VisualBlock:
+				switch ((char)unicodeKey) {
+				case 'p':
+					PasteAfter (false);
+					return;
+				case 'P':
+					PasteBefore (false);
+					return;
+				}
+				action = ViActionMaps.GetNavCharAction ((char)unicodeKey);
+				if (action == null) {
+					action = ViActionMaps.GetDirectionKeyAction (key, modifier);
+				}
+				if (action == null) {
+					action = ViActionMaps.GetCommandCharAction ((char)unicodeKey);
+				}
+				if (action != null) {
+					RunAction (SelectionActions.FromMoveAction (action));
+					return;
+				}
+				
 				ApplyActionToSelection (modifier, unicodeKey);
 				return;
 				
@@ -1112,6 +1147,7 @@ namespace Mono.TextEditor.Vi
 			Yank,
 			Visual,
 			VisualLine,
+			VisualBlock,
 			Insert,
 			Replace,
 			WriteChar,
