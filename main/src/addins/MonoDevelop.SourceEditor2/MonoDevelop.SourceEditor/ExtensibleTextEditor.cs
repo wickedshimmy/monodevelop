@@ -382,7 +382,7 @@ namespace MonoDevelop.SourceEditor
 					skipChar = null;
 			}
 			char insertionChar = '\0';
-			if (skipChar == null && Options.AutoInsertMatchingBracket && braceIndex >= 0) {
+			if (skipChar == null && Options.AutoInsertMatchingBracket && braceIndex >= 0 && (state & Gdk.ModifierType.ControlMask) == Gdk.ModifierType.None) {
 				if (!inStringOrComment) {
 					char closingBrace = closingBrackets[braceIndex];
 					char openingBrace = openBrackets[braceIndex];
