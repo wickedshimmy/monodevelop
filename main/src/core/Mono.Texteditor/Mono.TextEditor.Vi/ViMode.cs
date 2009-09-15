@@ -100,7 +100,7 @@ namespace Mono.TextEditor.Vi
 		bool searchBackward;
 		static string lastPattern;
 		static string lastReplacement;
-		State state;
+		protected State state;
 		const string substMatch = @"^:s(?<sep>.)(?<pattern>.+?)\k<sep>(?<replacement>.*?)(\k<sep>(?<trailer>i?))?$";
 		StringBuilder commandBuffer = new StringBuilder ();
 		Dictionary<char,ViMark> marks = new Dictionary<char, ViMark>();
@@ -1139,7 +1139,7 @@ namespace Mono.TextEditor.Vi
 			this.Document.EndAtomicUndo();
 		}
 
-		enum State {
+		protected enum State {
 			Unknown = 0,
 			Normal,
 			Command,
