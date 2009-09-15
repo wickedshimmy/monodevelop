@@ -182,6 +182,18 @@ namespace MonoDevelop.SourceEditor
 		
 		protected override void HandleKeypress (Gdk.Key key, uint unicodeKey, Gdk.ModifierType modifier)
 		{
+			switch (state) {
+			case State.G:
+				switch (key) {
+				case Gdk.Key.t:
+					IdeApp.CommandService.DispatchCommand (MonoDevelop.Ide.Commands.WindowCommands.NextWindow);
+					return;
+				case Gdk.Key.T:
+					IdeApp.CommandService.DispatchCommand (MonoDevelop.Ide.Commands.WindowCommands.PrevWindow);
+					return;
+				}
+				break;
+			}
 			base.HandleKeypress (key, unicodeKey, modifier);
 		}
 	}
