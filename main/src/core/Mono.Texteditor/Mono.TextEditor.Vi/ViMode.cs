@@ -920,6 +920,10 @@ namespace Mono.TextEditor.Vi
 						// Fold open
 							action = FoldActions.OpenFold;
 							break;
+						case 'z':
+						// Not a fold command!
+//							action = null;
+							break;
 						default:
 							Reset ("Unknown command");
 							break;
