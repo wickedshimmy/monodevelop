@@ -182,15 +182,6 @@ namespace MonoDevelop.SourceEditor
 		
 		protected override void HandleKeypress (Gdk.Key key, uint unicodeKey, Gdk.ModifierType modifier)
 		{
-			if (0 != (Gdk.ModifierType.ControlMask & modifier)) {
-				switch (key) {
-				case Gdk.Key.bracketright:
-					// ctrl-] => Go to declaration	
-					IdeApp.CommandService.DispatchCommand (MonoDevelop.Refactoring.RefactoryCommands.GotoDeclaration);
-					return;
-				}
-			}// ctrl+key		
-			
 			base.HandleKeypress (key, unicodeKey, modifier);
 		}
 	}
