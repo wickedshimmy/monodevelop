@@ -184,6 +184,10 @@ namespace MonoDevelop.SourceEditor
 		{
 			switch (state) {
 			case State.G:
+				if ((0 != (Gdk.ModifierType.ControlMask & modifier)) && key == Gdk.Key.g) {
+					IdeApp.CommandService.DispatchCommand (MonoDevelop.Ide.Commands.EditCommands.WordCount);
+					return;
+				}
 				switch (key) {
 				case Gdk.Key.t:
 					IdeApp.CommandService.DispatchCommand (MonoDevelop.Ide.Commands.WindowCommands.NextWindow);
