@@ -1,6 +1,5 @@
 <?xml version="1.0"?>
 <scheme version="1.0">
-    <binding command="Pad|MonoDevelop.Debugger.BreakpointPad" shortcut="Control+D|B" />
     <binding command="MonoDevelop.Debugger.DebugCommands.Debug" shortcut="F5" />
     <binding command="MonoDevelop.Debugger.DebugCommands.StepInto" shortcut="F11" />
     <binding command="MonoDevelop.Debugger.DebugCommands.StepOver" shortcut="F10" />
@@ -15,6 +14,7 @@
     <binding command="MonoDevelop.Ide.Commands.SearchCommands.ToggleBookmark" shortcut="Control+M|T" />
 
     <binding command="Pad|MonoDevelop.Ide.Gui.Pads.ErrorListPad" shortcut="Alt+Shift+E" />
+    <binding command="Pad|MonoDevelop.Debugger.BreakpointPad" shortcut="Control+D|B" />
     <binding command="Pad|MonoDevelop.Debugger.LocalsPad" shortcut="Control+D|L" />
     <binding command="Pad|MonoDevelop.Debugger.StackTracePad" shortcut="Control+D|C" />
     <binding command="Pad|MonoDevelop.Debugger.DebugCommands.ExpressionEvaluator" shortcut="Control+D|Q" />
@@ -35,8 +35,7 @@
     <binding command="MonoDevelop.Ide.Commands.EditCommands.Redo" shortcut="Control+R" />
     <binding command="MonoDevelop.Ide.Commands.EditCommands.ToggleCodeComment" shortcut="Control+X" />
 
-    <binding command="MonoDevelop.Ide.Commands.FileCommands.CloseFile" shortcut="Control+W|Q" /> 
-
+    <!-- Cleared; handled by command-mode -->
     <binding command="MonoDevelop.Ide.Commands.NavigationCommands.NavigateBack" shortcut="" />
     <binding command="MonoDevelop.Ide.Commands.NavigationCommands.NavigateForwards" shortcut="" />
     <binding command="MonoDevelop.Ide.Commands.NavigationCommands.NavigateHistory" shortcut="" />
@@ -46,11 +45,14 @@
     <binding command="MonoDevelop.Ide.Commands.TextEditorCommands.ShowCompletionWindow" shortcut="Control+N" />
     <binding command="MonoDevelop.Ide.Commands.TextEditorCommands.ShowParameterCompletionWindow" shortcut="Control+P" />
 
+    <binding command="MonoDevelop.Ide.Commands.FileCommands.CloseFile" shortcut="Control+W|C" />
+
     <binding command="MonoDevelop.Ide.Commands.WindowCommands.SplitWindowHorizontally" shortcut="Control+W|S" />
     <binding command="MonoDevelop.Ide.Commands.WindowCommands.SplitWindowVertically" shortcut="Control+W|V" />
     <binding command="MonoDevelop.Ide.Commands.WindowCommands.UnsplitWindow" shortcut="Control+W|O" />
     <binding command="MonoDevelop.Ide.Commands.WindowCommands.SwitchSplitWindow" shortcut="Control+W|W" />
 
+    <!-- ctags/cscope default bindings -->
     <binding command="MonoDevelop.Refactoring.RefactoryCommands.GoToDeclaration" shortcut="Control+]" />
     <binding command="MonoDevelop.Refactoring.RefactoryCommands.FindReferences" shortcut="Control+\|S" />
 </scheme>
